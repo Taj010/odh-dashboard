@@ -68,6 +68,13 @@ const RegisterModelDetailsFormSection = <D extends RegisterModelFormData>({
         value={formData.modelDescription}
         onChange={(_e, value) => setData('modelDescription', value)}
       />
+      <FormHelperText>
+        <HelperText>
+          <HelperTextItem>
+            Enter a brief summary of the model's key details.
+          </HelperTextItem>
+        </HelperText>
+      </FormHelperText>
     </FormGroup>
   </FormSection>
 );

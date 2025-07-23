@@ -9,6 +9,7 @@ import {
   PageSection,
   Stack,
   StackItem,
+  Alert,
 } from '@patternfly/react-core';
 import React from 'react';
 import { Link, useNavigate, useParams } from 'react-router';
@@ -48,6 +49,7 @@ import { TrackingOutcome } from '#~/concepts/analyticsTracking/trackingPropertie
 import useRegisteredModels from '#~/concepts/modelRegistry/apiHooks/useRegisteredModels';
 import { catalogParamsToModelSourceProperties } from '#~/concepts/modelRegistry/utils';
 import { ModelRegistriesContext } from '#~/concepts/modelRegistry/context/ModelRegistriesContext';
+import { modelVersionRoute } from '#~/routes/modelRegistry/modelVersions';
 
 const RegisterCatalogModel: React.FC = () => {
   const navigate = useNavigate();
@@ -161,7 +163,7 @@ const RegisterCatalogModel: React.FC = () => {
         success: true,
         model: params.modelName,
       });
-      navigate(registeredModelRoute(registeredModel.id, preferredModelRegistry?.metadata.name));
+      navigate(modelVersionRoute(modelVersion.id, registeredModel.id, preferredModelRegistry?.metadata.name));
     } else if (Object.keys(errors).length > 0) {
       setIsSubmitting(false);
       setSubmittedRegisteredModelName(formData.modelName);
@@ -236,6 +238,13 @@ const RegisterCatalogModel: React.FC = () => {
                     </HelperText>
                   </FormHelperText>
                 )}
+                <Alert
+                  variant="info"
+                  isInline
+                  isPlain
+                  title="Additional model metadata, such as its model card details, labels, provider, and license, will be available to view and edit after registration is complete."
+                  style={{ marginTop: 'var(--pf-t--global--spacer--lg)' }}
+                />
               </FormGroup>
             </StackItem>
             <StackItem>

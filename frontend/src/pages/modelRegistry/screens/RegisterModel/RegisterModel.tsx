@@ -30,6 +30,7 @@ import PrefilledModelRegistryField from './PrefilledModelRegistryField';
 import RegistrationFormFooter from './RegistrationFormFooter';
 import { SubmitLabel } from './const';
 import RegisterModelDetailsFormSection from './RegisterModelDetailsFormSection';
+import { modelVersionRoute } from '#~/routes/modelRegistry/modelVersions';
 
 const eventName = 'Model Registered';
 const RegisterModel: React.FC = () => {
@@ -69,7 +70,7 @@ const RegisterModel: React.FC = () => {
         success: true,
         locationType: formData.modelLocationType,
       });
-      navigate(registeredModelRoute(registeredModel.id, mrName));
+      navigate(modelVersionRoute(modelVersion.id, registeredModel.id, mrName));
     } else if (Object.keys(errors).length > 0) {
       fireFormTrackingEvent(eventName, {
         outcome: TrackingOutcome.submit,
