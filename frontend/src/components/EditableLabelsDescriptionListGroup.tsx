@@ -167,7 +167,8 @@ export const EditableLabelsDescriptionListGroup: React.FC<EditableLabelsProps> =
               <Label
                 data-testid={`editable-label-${label}`}
                 key={label + index}
-                color={shouldBeRed(label, index) ? 'red' : 'blue'}
+                color={shouldBeRed(label, index) ? 'red' : 'grey'}
+                variant="outline"
                 isEditable={!isSavingEdits}
                 onClose={() => removeUnsavedLabel(label)}
                 closeBtnProps={{
@@ -238,7 +239,7 @@ export const EditableLabelsDescriptionListGroup: React.FC<EditableLabelsProps> =
         key={String(hasSavedEdits)} // Force this to fully remount when we change defaultIsOpen
       >
         {labels.map((label) => (
-          <Label key={label} color="blue" data-testid="label">
+          <Label key={label} color="grey" variant="outline" data-testid="label">
             {label}
           </Label>
         ))}

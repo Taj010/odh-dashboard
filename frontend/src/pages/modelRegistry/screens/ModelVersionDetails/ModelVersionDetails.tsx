@@ -142,7 +142,6 @@ const ModelVersionsDetails: React.FC<ModelVersionsDetailProps> = ({ tab, ...page
           </Flex>
         )
       }
-      description={<Truncate content={mv?.description || ''} />}
       loadError={mvLoadError}
       loaded={mvLoaded}
       provideChildrenPadding

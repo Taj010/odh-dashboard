@@ -93,7 +93,7 @@ const ModelPropertiesTableRow: React.FC<ModelPropertiesTableRowProps> = ({
 
   return (
     <Tr>
-      <Td dataLabel="Key" width={45} modifier="breakWord">
+      <Td dataLabel="Key" width={50} modifier="breakWord">
         {isEditing ? (
           <>
             <TextInput
@@ -122,7 +122,7 @@ const ModelPropertiesTableRow: React.FC<ModelPropertiesTableRowProps> = ({
           key
         )}
       </Td>
-      <Td dataLabel="Value" width={45} modifier="breakWord">
+      <Td dataLabel="Value" width={80} modifier="breakWord">
         {isEditing ? (
           <TextInput
             data-testid={
